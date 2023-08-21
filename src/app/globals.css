@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb:255, 255, 255;
-  --background-start-rgb: #0F1812;
+  /* --background-rgb: #0F1812; */
   /* --background-end-rgb: 255, 255, 255; */
 }
 
@@ -23,13 +23,10 @@
     /* font-family: "Manrope", sans-serif; */
   }
 
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: var(--background-start-rgb);
+  /* background: var(--background-start-rgb); */
   /* background: linear-gradient(
       to bottom,
       transparent,
@@ -41,3 +38,24 @@ body {
 .cont{
     @apply px-5 md:px-8 lx:px-28;
 }} */
+
+.max-width {
+    @apply max-w-[1440px] mx-auto;
+  }
+
+  .padding-x {
+    @apply px-5 md:px-8 xl:px-28;
+  }
+
+  
+  /* .padding-y {
+    @apply py-4;
+  } */
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }

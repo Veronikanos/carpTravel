@@ -17,15 +17,15 @@ const Header = () => {
 
     const handleNav=()=>{
         setNav(!nav);
-    }
+    } 
 
   return (
-    <div className="px-5 md:px-8 lx:px-28 mt-5">
-      <nav className="max-w-[1440px] m-auto flex justify-between items-center align-baseline py-5 text-white">
+    <header className="padding-x mt-8 md:mt-6 ">
+      <nav className="max-width flex-between align-baseline text-white">
         <Link href="/">
         <Image
           src='/logo.png'
-          alt='logo'
+          alt='logo' 
           width={59}
           height={21}
           className='object-contain'
@@ -34,7 +34,8 @@ const Header = () => {
         </Link>
         <ul className="hidden sm:flex sm:gap-6 xl:gap-14 text-sm tracking-[1.4px]">
           <li onClick={handleNav}>
-            <Link className='py-3 xl:py-7 hover:underline underline-offset-4'  href="/about">About</Link>
+            <Link className='py-3 xl:py-7 hover:underline underline-offset-4'  href="/about">About
+            </Link>
           </li>
           <li onClick={handleNav}>
             <Link className='py-3 xl:py-7 hover:underline underline-offset-4' href="/services">Services</Link>
@@ -57,7 +58,7 @@ const Header = () => {
         {/* Mobile menu */}
         {/* <div className=' '> */}
             {/* <button >close</button> */} 
-        <ul className={nav ? "sm:hidden absolute top-0 left-0 bottom-0 right-0 w-full h-screen backdrop-blur-xl flex flex-col justify-center items-center tracking-[1.8px]  text-center ease-in duration-300" : "sm:hidden absolute top-0 left-[-100%] bottom-0 right-0 w-full h-screen backdrop-blur-xl flex flex-col justify-center items-center  text-center ease-in duration-300"}>
+        <ul className={nav ? "sm:hidden absolute top-0 left-0 bottom-0 right-0 w-full h-screen backdrop-blur-xl flex-center flex-col  tracking-[1.8px]  text-center ease-in duration-300" : "sm:hidden absolute top-0 left-[-100%] bottom-0 right-0 w-full h-screen backdrop-blur-xl flex-center flex-col  text-center ease-in duration-300"}>
             <li onClick={handleNav}>
               <Link href="/about" className="p-6 text-lg block">About</Link>
             </li>
@@ -76,7 +77,7 @@ const Header = () => {
         </ul>
         {/* </div> */}
       </nav>
-    </div>
+      </header>
   );
 };
 
