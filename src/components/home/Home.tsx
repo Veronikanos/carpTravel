@@ -1,6 +1,7 @@
 import {FC} from 'react';
 import {Hero, Header} from '..';
 
+
 const Home: FC = () => {
   return (     
     <>

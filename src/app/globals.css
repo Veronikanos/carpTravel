@@ -23,6 +23,10 @@
     /* font-family: "Manrope", sans-serif; */
   }
 
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
 body {
   color: rgb(var(--foreground-rgb));
   background: var(--background-start-rgb);
@@ -33,7 +37,7 @@ body {
     )
     rgb(var(--background-start-rgb)); */
 }
-@layer components {
+/* @layer components {
 .cont{
     @apply px-5 md:px-8 lx:px-28;
-}}
+}} */
