@@ -9,7 +9,7 @@ const inter = Inter({
 
 const Home: FC = () => {
   return (
-    <main className={`${inter.className} overflow-hidden`}>
+    <main className={`${inter.className} absolute top-0`}>
       <Hero />
     </main>
   );
