@@ -20,7 +20,7 @@ const Header = () => {
     } 
 
   return (
-    <header className="padding-x mt-8 md:mt-6 ">
+    <header className="padding-x mt-8 md:mt-6 mb-9 md:mb-16 xl:mb-[72px]                ">
       <nav className="max-width flex-between align-baseline text-white">
         <Link href="/">
         <Image

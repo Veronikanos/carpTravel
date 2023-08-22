@@ -1,9 +1,15 @@
 import {FC} from 'react';
 import { Hero } from '..';
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "400", "500", "600", "700", "800", "900"],
+});
 
 const Home: FC = () => {
   return (
-    <main className="overflow-hidden">
+    <main className={`${inter.className} overflow-hidden`}>
       <Hero />
     </main>
   );
