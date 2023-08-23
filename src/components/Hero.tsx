@@ -10,7 +10,7 @@ const Hero: FC = () => {
             
             <h1 className="header-1 first-letter:font-medium w-[118px] ml-auto  md:col-span-2 hero-right">
             7days
-                <span className="tracking-[9.48px] text-xs font-light block leading-normal md:text-sm md:tracking-[25.9px] xl:text-base xl:tracking-[36.48px]">
+                <span className="tracking-[9.48px] text-xs font-light block leading-none md:text-sm md:tracking-[25.9px] xl:text-base xl:tracking-[36.48px]">
                     journey
                 </span>
             </h1>

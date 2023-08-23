@@ -6,10 +6,10 @@ const About: FC = () => {
   return (
     <section>
       <div className="padding-x about-section">
-        <div className="padding-y ">
-          <h2 className='header-2 mb-[8px]'>WHO <span className='font-medium'>WE ARE</span></h2>
-          <div className="flex flex-col gap-[40px]">
-          <div className="w-[180px] flex flex-col gap-[20px]">
+        <div className="padding-y flex flex-col md:grid  md:grid-flow-row md:auto-rows-max">
+          <h2 className='header-2 mb-[8px] md:mb-0 col-span-2 xl:col-span-1'>WHO <span className='font-medium'>WE ARE</span></h2>
+          
+          <div className="w-[180px] flex flex-col gap-[20px] md:gap-[16px] mb-[40px] md:mb-[64px] xl:mb-[72px] md:mt-[9px] md:row-span-2  xl:row-span-1 md:justify-self-end md:w-[220px] xl:w-[292px] xl:ml-[24px] xl:mt-[21px]" >
             <p className=''>
                 <span className='font-normal'>a team of enthusiasts</span> who are fully committed to the
                 mission of creating unforgettable and extraordinary trips
@@ -26,22 +26,21 @@ const About: FC = () => {
                 unforgettable memories.{' '}
             </p>
           </div>
-          <div className="w-[180px] flex flex-col self-end">
+          <div className="flex flex-col self-end mb-[40px] md:mb-[64px] xl:order-last xl:col-start-3">
             <span className="uppercase font-normal">From vacationers </span>
             <span className="uppercase font-normal self-end">to active travelers</span>
-            <span className='tracking-[-0.14px]'>we have a tour for everyone.</span>
+            <span className='tracking-[-0.14px] md:tracking-[0.32px] xl:tracking-[2.16px]'>we have a tour for everyone.</span>
           </div>
-          <p>
+          <p className='md:col-span-2  md:align-self-end md:col-start-2  md:justify-self-end md:max-w-[463px] xl:max-w-[605px] xl:col-start-1 xl:justify-self-start'>
           <span className='font-normal'>We use methods</span> that are time-tested and proven. Our expert
             guides with in-depth knowledge of the Carpathian
             landscapes lead you safely through the mysteries of these
-            mountains.{' '}
+            mountains.
           </p>
-
-          </div>
         </div>
-      </div>
+      </div> <p>text</p>
     </section>
+   
   );
 };
 
