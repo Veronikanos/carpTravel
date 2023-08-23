@@ -20,7 +20,7 @@ const Header = () => {
     } 
 
   return (
-    <header className="padding-x pt-8 md:pt-6 z-10      relative         ">
+    <header className="padding-x pt-8 md:pt-6 z-10  relative         ">
       <nav className="max-width flex-between align-baseline text-white">
         <Link href="/">
         <Image
@@ -58,7 +58,7 @@ const Header = () => {
         {/* Mobile menu */}
         {/* <div className=' '> */}
             {/* <button >close</button> */} 
-        <ul className={nav ? "sm:hidden absolute top-0 left-0 bottom-0 right-0 w-full h-screen backdrop-blur-xl flex-center flex-col  tracking-[1.8px]  text-center ease-in duration-300" : "sm:hidden absolute top-0 left-[-100%] bottom-0 right-0 w-full h-screen backdrop-blur-xl flex-center flex-col  text-center ease-in duration-300"}>
+        <ul className={nav ? "mobile-menu__bg sm:hidden absolute top-0 left-0 bottom-0 right-0 w-full h-screen  flex-center flex-col  tracking-[1.8px]  text-center ease-in duration-300" : "mobile-menu__bg sm:hidden absolute top-0 left-[-100%] bottom-0 right-0 w-full h-screen  flex-center flex-col  text-center ease-in duration-300"}>
             <li onClick={handleNav}>
               <Link href="/about" className="p-6 text-lg block">About</Link>
             </li>

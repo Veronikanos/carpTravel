@@ -1,6 +1,5 @@
 import type {Config} from 'tailwindcss';
 
-
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -15,6 +14,7 @@ module.exports = {
       },
       colors: {
         'dark-color': '#0F1812',
+        'light-color': '#FFFFFF',
         // "primary-blue": {
         //   DEFAULT:" rgba(1, 10, 5, 0.75)",
         //   // 100: "#F5F8FF",
