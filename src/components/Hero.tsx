@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 const Hero: FC = () => {
   return (
-    <section>
-      <div className="padding-x hero-section">
+    <section className='padding-x hero-section '>
+      <div className="py-14 pt-[105px] md:pt-[122px] xl:pt-[130px]">
         <div className="flex flex-col gap-6 md:gap-x-12 md:gap-y-0 md:grid md:grid-rows-3 md:grid-cols-5 md:grid-flow-col ">
             
             <h1 className="header-1 first-letter:font-medium w-[118px] ml-auto  md:col-span-2 hero-right">

@@ -1,6 +1,6 @@
 import {FC} from 'react';
-import { Hero } from '..';
 import { Inter } from "next/font/google";
+import { About, Hero } from '.';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,6 +11,7 @@ const Home: FC = () => {
   return (
     <main className={`${inter.className} absolute top-0 left-0 right-0`}>
       <Hero />
+      <About/>
     </main>
   );
 };

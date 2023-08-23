@@ -1,7 +1,6 @@
-import Hero from './hero/Hero';
-import Header from './header/Header';
-import Home from './home/Home';
+import Hero from './Hero';
+import Header from './Header';
+import Home from './Home';
+import About from './About';
 
-export {Home,
-  Header,
-  Hero};
+export {Home, Header, Hero, About};

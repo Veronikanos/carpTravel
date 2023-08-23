@@ -26,7 +26,8 @@ module.exports = {
         // },
         // grey: "#747A88",
       },
-      fontSize: {
+      fontWeight: {
+        // DEFAULT: 200,
         // header: '37px',
         // subheader: '40px',
         // '4xl': '2.441rem',
