@@ -15,7 +15,7 @@ const Hero: FC = () => {
                 </span>
             </h1>
             <div className="md:-order-1 md:row-span-3 md:col-span-3 ">
-                <h2 className="header-2 first-line:font-medium mb-6 md:mb-[58px]">
+                <h2 className="header-2 first-line:font-medium mb-6 md:mb-[58px] max-w-xs  md:max-w-fit xl:max-w-[646px] ">
                 Uncover Carpathian's secrets
                 </h2>
             

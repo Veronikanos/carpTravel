@@ -1,6 +1,4 @@
 import {FC} from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 
 const About: FC = () => {
   return (
@@ -38,9 +36,8 @@ const About: FC = () => {
             mountains.
           </p>
         </div>
-      </div> <p>text</p>
+      </div> 
     </section>
-   
   );
 };
 

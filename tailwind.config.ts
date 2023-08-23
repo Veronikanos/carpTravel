@@ -15,6 +15,7 @@ module.exports = {
       colors: {
         'dark-color': '#0F1812',
         'light-color': '#FFFFFF',
+        'light-transparent': 'rgba(255, 255, 255, 0.20)'
         // "primary-blue": {
         //   DEFAULT:" rgba(1, 10, 5, 0.75)",
         //   // 100: "#F5F8FF",

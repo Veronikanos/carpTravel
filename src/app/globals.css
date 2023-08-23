@@ -62,7 +62,7 @@ body {
 
 .header-2 {
   @apply text-[40px] leading-[56px] tracking-[-1.6px] uppercase font-thin
-  md:leading-none  md:text-[67px] md:tracking-[-2.68px] xl:text-[98px] xl:tracking-[-3.92px] max-w-xs xl:max-w-[646px]  xl:leading-[1.3] md:max-w-fit;
+  md:leading-none  md:text-[67px] md:tracking-[-2.68px] xl:text-[98px] xl:tracking-[-3.92px]  xl:leading-[1.3];
 }
 
 .text-style {
@@ -119,6 +119,27 @@ body {
 
   /* @apply pt-[105px] md:pt-[122px] xl:pt-[130px]; */
 }
+
+.services-list{
+    @apply text-xl font-extralight leading-[17px] uppercase;
+}
+
+.services-item__active{
+    position: relative;
+    @apply  font-medium;
+
+}
+.services-item__active::before{
+   content: '';
+position: relative;
+display: inline-block;
+width: 6px;
+height: 6px;
+background-color: white;
+margin-right: 8px;
+transform:translate(0, -50%) rotate(45deg); 
+}
+
 
 @media screen and (min-width: 768px) {
   .button-hero::before,
