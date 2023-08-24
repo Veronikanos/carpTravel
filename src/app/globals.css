@@ -175,3 +175,13 @@ transform:translate(0, -50%) rotate(45deg);
     background-size: auto 146px, cover, cover ;
   }
 }
+
+
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets{
+    display: flex;
+    flex-direction: column;
+}
+
+.swiper-pagination-bullets .swiper-pagination-bullet{
+height:fit-content;
+}

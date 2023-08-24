@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useRef, MutableRefObject } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { ContentItem } from './types';
@@ -11,106 +11,174 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Slider from './Slider';
+import { register } from "swiper/element/bundle";
 
+register();
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'swiper-container': any; // This is the type assertion
+      'swiper-slide': any;
+    }
+  }
+}
 
 const Services: FC = () => {
     const [data, setData] = useState<ContentItem[]>([]);
     const [controlledSwiper, setControlledSwiper] = useState<any>(null);
-    const [activeItem, setActiveItem] = useState<number>(0); // Initialize activeItem state
- 
-    useEffect(() => {
-      // Fetch data from content.json 
-      fetch('/content.json')
-        .then(response => response.json())
-        .then(data => setData(data))
-        .catch(error => console.error('Error fetching data:', error));
-    }, []);
+    const [activeItem, setActiveItem] = useState<any>(0); // Initialize activeItem state
+    const swiperRef = useRef(null);
 
-
-  // Access activeIndex from controlledSwiper
-  const activeIndex = controlledSwiper?.activeIndex ?? 0;
-
-  // Update the activeItem state with a new value
-  const handleActiveItemChange = (newActiveItem: number) => {
-    setActiveItem(newActiveItem);
-  };
-    return (
-      <section>
-        <div className="padding-x services-section">
-          <div className="padding-y">
-            <h2 className="header-2 mb-[24px] md:mb-0">
-              We <span className="font-medium">offer</span>
-            </h2>
-            <div className="header-2 ml-auto">01/0{data.length}
-            </div>
+    // const [activeItem, setActiveItem] = useState('cat');
+    const items = ['cat', 'dog', 'bird'];
   
-            <div className="my-[16px] max-w-[463px] md:max-w-[463px] xl:max-w-[607px]">
+    const handleItemClick = (item: any) => {
+      setActiveItem(item);
+    };
+  
 
-              
-              
-              <Swiper 
-              modules={[Controller, Navigation, Pagination, Scrollbar, A11y]}
-            //   modules={[EffectFade]} effect="fade"
-                spaceBetween={50}
-                slidesPerView={1}
-                pagination={{clickable: true}}
-                
-                controller={{ control: controlledSwiper }}
-    //   onSlideChange={(swiper) => handleActiveItemChange(swiper.activeIndex)}
-      onSlideChange={(swiper) => console.log(swiper)}
+
+    // useEffect(() => {
+    //   // Fetch data from content.json 
+    //   fetch('/content.json')
+    //     .then(response => response.json())
+    //     .then(data => setData(data))
+    //     .catch(error => console.error('Error fetching data:', error));
+    // }, []);
+
+    const renderCustomBullet = (index: number, className: string) => {
+        if (!data){
+            fetch('/content.json')
+            .then(response => response.json())
+            .then(data => setData(data))
+            .catch(error => console.error('Error fetching data:', error));
+        }
+            // Custom pagination rendering for each item
+            const item = data[index];
+            console.log(data);
+            console.log(activeItem);
+            return `
+              <div
+                class="${className} cursor-pointer ${
+                  activeItem === item ? 'font-bold' : 'opacity-50'
+                }"
               >
-                {data.map((item, index) => (
-                  <SwiperSlide key={index}>
-                    <div className="">
-                      <Image
-                        src={item.image}
-                        width={607}
-                        height={429}
-                        sizes="(max-width: 320px) 280px, (max-width: 768px) 463px, (max-width: 1280px) 607px"
-                        alt={item.alt}
-                        layout="responsive"
-                      />
-                    </div>
-                    <p className="mb-[24px]">{item.title}</p>
-                    <Slider/>
-            <p>
-              {item.description}
-            </p>
-   
+              {activeItem.title}
+              </div>
+            `;
+          }
+
+  // ${data[index].title}
+
+    return (
+ 
+            <div className="relative w-full h-screen">
+                    <Swiper
+        navigation
+        pagination={{
+          clickable: true,
+        //   formatFractionCurrent: function (number) {
+        //     return '0' + number;
+        // },
+        //   renderFraction: function (currentClass, totalClass) {
+        //     return '<span class="' + currentClass + '"></span>' +
+        //             ' of ' +
+        //             '<span class="' + totalClass + '"></span>';
+        // },
+          renderBullet: renderCustomBullet,
+        }}
+        // className="absolute w-full h-full"
+        style={{ height: '500px' }}
+      >
+      
+                {/* Swiper slides */}
+                {items.map((item) => (
+                  <SwiperSlide key={item}>
+                    <h2>{item}</h2>
+                    {/* <img src={`/images/${item}-background.jpg`} alt={`${item} background`} /> */}
                   </SwiperSlide>
                 ))}
               </Swiper>
-
-              <Swiper
-        modules={[Controller]}
-        onSwiper={setControlledSwiper}
-      >
-             <SwiperSlide> {activeIndex}</SwiperSlide> 
-             <SwiperSlide> {activeIndex}</SwiperSlide> 
-             <SwiperSlide> {activeIndex}</SwiperSlide> 
-             <SwiperSlide> {activeIndex}</SwiperSlide> 
-             <SwiperSlide> {activeIndex}</SwiperSlide> 
-      </Swiper>
-
-
+    
             </div>
+
+    //   <section>
+    //     <div className="padding-x services-section">
+    //       <div className="padding-y">
+    //         <h2 className="header-2 mb-[24px] md:mb-0">
+    //           We <span className="font-medium">offer</span>
+    //         </h2>
+    //         <div className="header-2 ml-auto">01/0{data.length}
+    //         </div>
   
-            {/* <ul className="mb-[34px] services-list flex flex-col gap-[16px]">
-              {data.map((item, index) => (
-                <li
-                  key={index}
-                  className={index === activeSlide ? 'services-item__active' : ''}
-                  onClick={() => handleListItemClick(index)}
-                >
-                  {item.title}
-                </li>
-              ))}
-            </ul> */}
+    //         <div className="my-[16px] max-w-[463px] md:max-w-[463px] xl:max-w-[607px]">
+
+              
+              
+    //           <Swiper 
+    //           modules={[Controller, Navigation, Pagination, Scrollbar, A11y]}
+    //         //   modules={[EffectFade]} effect="fade"
+    //             spaceBetween={50}
+    //             slidesPerView={1}
+    //             pagination={{clickable: true}}
+                
+    //             controller={{ control: controlledSwiper }}
+    // //   onSlideChange={(swiper) => handleActiveItemChange(swiper.activeIndex)}
+    //   onSlideChange={(swiper) => console.log(swiper)}
+    //           >
+    //             {data.map((item, index) => (
+    //               <SwiperSlide key={index}>
+    //                 <div className="">
+    //                   <Image
+    //                     src={item.image}
+    //                     width={607}
+    //                     height={429}
+    //                     sizes="(max-width: 320px) 280px, (max-width: 768px) 463px, (max-width: 1280px) 607px"
+    //                     alt={item.alt}
+    //                     layout="responsive"
+    //                   />
+    //                 </div>
+    //                 <p className="mb-[24px]">{item.title}</p>
+    //                 <Slider/>
+    //         <p>
+    //           {item.description}
+    //         </p>
+   
+    //               </SwiperSlide>
+    //             ))}
+    //           </Swiper>
+
+    //           <Swiper
+    //     modules={[Controller]}
+    //     onSwiper={setControlledSwiper}
+    //   >
+    //          <SwiperSlide> {activeIndex}</SwiperSlide> 
+    //          <SwiperSlide> {activeIndex}</SwiperSlide> 
+    //          <SwiperSlide> {activeIndex}</SwiperSlide> 
+    //          <SwiperSlide> {activeIndex}</SwiperSlide> 
+    //          <SwiperSlide> {activeIndex}</SwiperSlide> 
+    //   </Swiper>
+
+
+    //         </div>
+  
+    //         {/* <ul className="mb-[34px] services-list flex flex-col gap-[16px]">
+    //           {data.map((item, index) => (
+    //             <li
+    //               key={index}
+    //               className={index === activeSlide ? 'services-item__active' : ''}
+    //               onClick={() => handleListItemClick(index)}
+    //             >
+    //               {item.title}
+    //             </li>
+    //           ))}
+    //         </ul> */}
   
 
-          </div>
-        </div>
-      </section>
+    //       </div>
+    //     </div>
+    //   </section>
     );
   };
   
