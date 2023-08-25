@@ -2,7 +2,7 @@ import {FC} from 'react';
 
 const About: FC = () => {
   return (
-    <section>
+    <section id='about'>
       <div className="padding-x about-section">
         <div className="padding-y flex flex-col md:grid  md:grid-flow-row md:auto-rows-max">
           <h2 className='header-2 mb-[8px] md:mb-0 col-span-2 xl:col-span-1'>WHO <span className='font-medium'>WE ARE</span></h2>
