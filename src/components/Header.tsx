@@ -1,22 +1,11 @@
 'use client';
-// import {FC} from 'react';
-import Image from 'next/image';
-// import Link from 'next/link';
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import {Link} from 'react-scroll';
 
 import {navigation} from '@/utils/navigation';
+import Logo from './Logo';
 
-import {Karantina} from 'next/font/google';
-
-const karantina = Karantina({
-  weight: ['400', '700'],
-  style: ['normal'],
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const Header = () => {
+const Header: FC = () => {
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
@@ -27,17 +16,7 @@ const Header = () => {
     <header className="padding-x pt-8 md:pt-6 z-10  relative">
       <nav className="max-width flex-between align-baseline text-white">
         <Link to="/">
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={59}
-            height={21}
-            className="object-contain"
-          />
-          <span
-            className={`${karantina.className} text-sm tracking-[2.59px]`}>
-            CarpTravel
-          </span>
+            <Logo/>
         </Link>
         <ul className="hidden sm:flex sm:gap-6 xl:gap-14 text-sm tracking-[1.4px]">
           {navigation.map(({id, title, path}) => (
@@ -61,7 +40,6 @@ const Header = () => {
         </div>
 
         {/* Mobile menu */}
-        {/* <button >close</button> */}
         <ul
           className={
             nav
