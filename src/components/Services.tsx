@@ -22,7 +22,7 @@ const Services: FC = () => {
   return (
     <>
       <section id="services" style={{backgroundImage: `url(${activeBg})`}}>
-        <div className=" services-section   padding-x">
+        <div className=" services-section  padding-x max-width">
           <div className="padding-y ">
             <div className="mb-[16px] md:flex  md:justify-between ">
               <h2 className="header-2 mb-[24px]">
