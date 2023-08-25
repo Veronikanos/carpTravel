@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 
 
-const Slider: FC = () => {
+const InnerSlider: FC = () => {
   
 
   return (

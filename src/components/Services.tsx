@@ -4,182 +4,105 @@ import Image from 'next/image';
 import { FC, useEffect, useState, useRef, MutableRefObject } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { ContentItem } from './types';
-import { Controller, Navigation, Pagination, Scrollbar, A11y,  EffectFade } from 'swiper/modules';
+import { EffectFade } from 'swiper/modules';
 import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import Slider from './Slider';
-import { register } from "swiper/element/bundle";
+import { sliderTitleButtonText, slides } from '@/utils/slides';
+import InnerSlider from './InnerSlider';
 
-register();
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'swiper-container': any; // This is the type assertion
-      'swiper-slide': any;
-    }
-  }
-}
 
 const Services: FC = () => {
-    const [data, setData] = useState<ContentItem[]>([]);
-    const [controlledSwiper, setControlledSwiper] = useState<any>(null);
-    const [activeItem, setActiveItem] = useState<any>(0); // Initialize activeItem state
-    const swiperRef = useRef(null);
+    const [swiperInstance, setSwiperInstance] = useState<any>(null);
+    const [activeIndex, setActiveIndex] = useState<number>(0);
 
-    // const [activeItem, setActiveItem] = useState('cat');
-    const items = ['cat', 'dog', 'bird'];
-  
-    const handleItemClick = (item: any) => {
-      setActiveItem(item);
+    const onClickBtn = (index: number) => {
+        swiperInstance.slideTo(index);
+        setActiveIndex(index + 1)
     };
   
-
-
-    // useEffect(() => {
-    //   // Fetch data from content.json 
-    //   fetch('/content.json')
-    //     .then(response => response.json())
-    //     .then(data => setData(data))
-    //     .catch(error => console.error('Error fetching data:', error));
-    // }, []);
-
-    const renderCustomBullet = (index: number, className: string) => {
-        if (!data){
-            fetch('/content.json')
-            .then(response => response.json())
-            .then(data => setData(data))
-            .catch(error => console.error('Error fetching data:', error));
-        }
-            // Custom pagination rendering for each item
-            const item = data[index];
-            console.log(data);
-            console.log(activeItem);
-            return `
-              <div
-                class="${className} cursor-pointer ${
-                  activeItem === item ? 'font-bold' : 'opacity-50'
-                }"
-              >
-              {activeItem.title}
-              </div>
-            `;
-          }
-
-  // ${data[index].title}
-
     return (
- 
-            <div className="relative w-full h-screen">
-                    <Swiper
-        navigation
-        pagination={{
-          clickable: true,
-        //   formatFractionCurrent: function (number) {
-        //     return '0' + number;
-        // },
-        //   renderFraction: function (currentClass, totalClass) {
-        //     return '<span class="' + currentClass + '"></span>' +
-        //             ' of ' +
-        //             '<span class="' + totalClass + '"></span>';
-        // },
-          renderBullet: renderCustomBullet,
-        }}
-        // className="absolute w-full h-full"
-        style={{ height: '500px' }}
-      >
+      <>
       
-                {/* Swiper slides */}
-                {items.map((item) => (
-                  <SwiperSlide key={item}>
-                    <h2>{item}</h2>
-                    {/* <img src={`/images/${item}-background.jpg`} alt={`${item} background`} /> */}
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+        {/* <section
+          className="section  services h-[850px] relative md:h-[620px] xl:h-[784px]"
+          id="services"
+        > */}
+        <section>
+        <div className=" services-section relative padding-y min-h-[851px]">
+           <div className="absolute z-10">
+             <h2 className="header-2 mb-[24px] md:mb-0 z-20">
+               We <span className="font-medium">offer</span>
+             </h2>
+             <div className="header-2 ml-auto">0{activeIndex + 1}/0{slides.length}
+             </div>
+             </div>
+             <div className=" relative"> 
+                {/* //TODO: add background */}
+             {/* <div className="my-[16px] max-w-[463px] md:max-w-[463px] xl:max-w-[607px]"> */}
+
+          <div className="swiper-container absolute top-[202px] left-0  h-full w-full ">
+            <Swiper modules={[EffectFade]} onSwiper={setSwiperInstance} effect="fade">
+              {slides.map(
+                ({ picture, bg, title }, index, arr) => {
+  
+                  return (
+                    <SwiperSlide key={index} className={`bg-cover`}>
+                      <InnerSlider
+                        picture={picture}
+                        bg={bg}
+                        title={title}
     
-            </div>
+                      />
+                    </SwiperSlide>
+                  );
+                }
+              )}
+            </Swiper>          
+            <div className=" flex flex-col ">
+          <p className="text-[67px] font-thin mb-10 leading-[1.16]">
+            0{activeIndex}/<span className="text-white/20 ">0{slides.length}</span>
+          </p>
 
-    //   <section>
-    //     <div className="padding-x services-section">
-    //       <div className="padding-y">
-    //         <h2 className="header-2 mb-[24px] md:mb-0">
-    //           We <span className="font-medium">offer</span>
-    //         </h2>
-    //         <div className="header-2 ml-auto">01/0{data.length}
-    //         </div>
-  
-    //         <div className="my-[16px] max-w-[463px] md:max-w-[463px] xl:max-w-[607px]">
+          <p className=" block text-right mb-6 text-[12px] leading-loose tracking-[2.4px] md:hidden">
+            {slides[activeIndex].title}
+          </p>
 
-              
-              
-    //           <Swiper 
-    //           modules={[Controller, Navigation, Pagination, Scrollbar, A11y]}
-    //         //   modules={[EffectFade]} effect="fade"
-    //             spaceBetween={50}
-    //             slidesPerView={1}
-    //             pagination={{clickable: true}}
-                
-    //             controller={{ control: controlledSwiper }}
-    // //   onSlideChange={(swiper) => handleActiveItemChange(swiper.activeIndex)}
-    //   onSlideChange={(swiper) => console.log(swiper)}
-    //           >
-    //             {data.map((item, index) => (
-    //               <SwiperSlide key={index}>
-    //                 <div className="">
-    //                   <Image
-    //                     src={item.image}
-    //                     width={607}
-    //                     height={429}
-    //                     sizes="(max-width: 320px) 280px, (max-width: 768px) 463px, (max-width: 1280px) 607px"
-    //                     alt={item.alt}
-    //                     layout="responsive"
-    //                   />
-    //                 </div>
-    //                 <p className="mb-[24px]">{item.title}</p>
-    //                 <Slider/>
-    //         <p>
-    //           {item.description}
-    //         </p>
-   
-    //               </SwiperSlide>
-    //             ))}
-    //           </Swiper>
+          <ul className="mb-[34px] services-list flex flex-col gap-[16px]">
+            {sliderTitleButtonText.map((item, index) => {
+              return (
+                <li
+                  key={index}
+                  className={
+                    index === activeIndex - 1
+                      ? 'services-item__active'
+                      : ''
+                  }
+                  onClick={() => {
+                    console.log(index);
+                    onClickBtn(index);
+                  }}>
+                  {item}
+                </li>
+              );
+            })}
+          </ul>
 
-    //           <Swiper
-    //     modules={[Controller]}
-    //     onSwiper={setControlledSwiper}
-    //   >
-    //          <SwiperSlide> {activeIndex}</SwiperSlide> 
-    //          <SwiperSlide> {activeIndex}</SwiperSlide> 
-    //          <SwiperSlide> {activeIndex}</SwiperSlide> 
-    //          <SwiperSlide> {activeIndex}</SwiperSlide> 
-    //          <SwiperSlide> {activeIndex}</SwiperSlide> 
-    //   </Swiper>
+          <div className=" grow flex flex-col justify-between">
+            <p className="section-text md:text-[13px] md:text-justify md:leading-[1.53]">
+              {slides[activeIndex].description}
+            </p>
+          </div>
+        </div>
+          </div>
 
-
-    //         </div>
-  
-    //         {/* <ul className="mb-[34px] services-list flex flex-col gap-[16px]">
-    //           {data.map((item, index) => (
-    //             <li
-    //               key={index}
-    //               className={index === activeSlide ? 'services-item__active' : ''}
-    //               onClick={() => handleListItemClick(index)}
-    //             >
-    //               {item.title}
-    //             </li>
-    //           ))}
-    //         </ul> */}
-  
-
-    //       </div>
-    //     </div>
-    //   </section>
+          </div>
+          
+          </div>
+        </section>
+      </>
     );
+
+    
   };
   
   export default Services;
