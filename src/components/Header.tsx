@@ -16,11 +16,14 @@ const Header: FC = () => {
     <header className="padding-x pt-8 md:pt-6 z-10  relative">
       <nav className="max-width flex-between align-baseline text-white">
         <Link to="/">
-            <Logo/>
+          <Logo />
         </Link>
         <ul className="hidden sm:flex sm:gap-6 xl:gap-14 text-sm tracking-[1.4px]">
           {navigation.map(({id, title, path}) => (
-            <li key={id} onClick={handleNav} className="underline-hover focus:outline-none">
+            <li
+              key={id}
+              onClick={handleNav}
+              className="underline-hover focus:outline-none">
               <Link
                 to={path}
                 spy={true}
