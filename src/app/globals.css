@@ -2,33 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* --foreground-rgb: 255, 255, 255; */
-  /* --background-rgb: #0F1812; */
-  /* --background-end-rgb: 255, 255, 255; */
-}
-
-/* @media (prefers-color-scheme: dark) { 
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: #0F1812;
-    --background-end-rgb: 0, 0, 0;
-  }
- }  */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: "Manrope", sans-serif; */
+
 }
 
 body {
     font-weight: 200;
     font-size: 14px;
     line-height: 20px;
-
-
 }
 
     @media screen and  (min-width: 768px){
@@ -112,13 +96,32 @@ body {
 
 .hero-section {
     background-image:     
-    linear-gradient(180deg, rgba(0, 24, 38, 0.75), rgba(0, 37, 49, 0) 100%),       linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),       url('/hero-bg.jpg')     ; 
+    linear-gradient(180deg, rgba(0, 24, 38, 0.75), rgba(0, 37, 49, 0) 100%),       linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),       image-set(
+        url(/images/hero-bg-mob.webp) type("image/webp") 1x,
+        url(/images/hero-bg-mob@2x.webp) type("image/webp") 2x,
+        url(/images/hero-bg-mob.jpg) 1x,
+        url(/images/hero-bg-mob@2x.jpg) 2x
+      );
   background-repeat: no-repeat;
   background-size: auto 287px , cover, cover ;
   min-height: 642px;
 
-  /* @apply pt-[105px] md:pt-[122px] xl:pt-[130px]; */
 }
+
+.about-section {
+    background-image:     
+    linear-gradient(180deg, rgba(0, 24, 38, 0.75), rgba(0, 37, 49, 0) 100%),       linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),       
+    image-set(
+        url(/images/about-bg-mob.webp) type("image/webp") 1x,
+        url(/images/about-bg-mob@2x.webp) type("image/webp") 2x,
+        url(/images/about-bg-mob.jpg) 1x,
+        url(/images/about-bg-mob@2x.jpg) 2x
+      );
+  background-repeat: no-repeat;
+  background-size: auto 287px , cover, cover ;
+  min-height: 873px;
+}
+
 
 .services-list{
     @apply text-xl font-extralight leading-[17px] uppercase;
@@ -155,6 +158,25 @@ transform:translate(0, -50%) rotate(45deg);
   }
   .hero-section {
     min-height: 531px;
+    background-image:     
+    linear-gradient(180deg, rgba(0, 24, 38, 0.75), rgba(0, 37, 49, 0) 100%),       linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),        image-set(
+        url(/images/hero-bg-tab.webp) type("image/webp") 1x,
+        url(/images/hero-bg-tab@2x.webp) type("image/webp") 2x,
+        url(/images/hero-bg-tab.jpg) 1x,
+        url(/images/hero-bg-tab@2x.jpg) 2x
+      );
+  }
+
+  .about-section {
+    min-height: 697px;
+    background-image:     
+    linear-gradient(180deg, rgba(0, 24, 38, 0.75), rgba(0, 37, 49, 0) 100%),       linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),        image-set(
+        url(/images/about-bg-tab.webp) type("image/webp") 1x,
+        url(/images/about-bg-tab@2x.webp) type("image/webp") 2x,
+        url(/images/about-bg-tab.jpg) 1x,
+        url(/images/about-bg-tab@2x.jpg) 2x
+   
+      );
   }
 }
 
@@ -173,6 +195,25 @@ transform:translate(0, -50%) rotate(45deg);
   .hero-section {
     min-height: 763px;
     background-size: auto 146px, cover, cover ;
+    background-image:     
+    linear-gradient(180deg, rgba(0, 24, 38, 0.75), rgba(0, 37, 49, 0) 100%),       linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),       image-set(
+        url(/images/hero-bg-desk.webp) type("image/webp") 1x,
+        url(/images/hero-bg-desk@2x.webp) type("image/webp") 2x,
+        url(/images/hero-bg-desk.jpg) 1x,
+        url(/images/hero-bg-desk@2x.jpg) 2x
+      );
+  }
+
+  .about-section {
+    min-height: 827px;
+    background-size: auto 146px, cover, cover ;
+    background-image:     
+    linear-gradient(180deg, rgba(0, 24, 38, 0.75), rgba(0, 37, 49, 0) 100%),       linear-gradient(rgba(2, 15, 8, 0.5), rgba(2, 15, 8, 0.5)),        image-set(
+        url(/images/about-bg-desk.webp) type("image/webp") 1x,
+        url(/images/about-bg-desk@2x.webp) type("image/webp") 2x,
+        url(/images/about-bg-desk.jpg) 1x,
+        url(/images/about-bg-desk@2x.jpg) 2x
+      );
   }
 }
 
