@@ -7,8 +7,6 @@ export type Slide = {
 };
 
 export type ServicesSlideProps = {
-  className?: string;
   picture: any;
-  bg: any;
   title: string;
 };
