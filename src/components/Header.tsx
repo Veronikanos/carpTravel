@@ -20,13 +20,13 @@ const Header: FC = () => {
         </Link>
         <ul className="hidden sm:flex sm:gap-6 xl:gap-14 text-sm tracking-[1.4px]">
           {navigation.map(({id, title, path}) => (
-            <li key={id} onClick={handleNav}>
+            <li key={id} onClick={handleNav} className="underline-hover focus:outline-none">
               <Link
                 to={path}
                 spy={true}
                 smooth={true}
                 duration={500}
-                className="py-3 xl:py-7 hover:underline underline-offset-4">
+                className="py-3 xl:py-7 hover:cursor-pointer underline-offset-4">
                 {title}
               </Link>
             </li>

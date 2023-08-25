@@ -1,4 +1,4 @@
-import {Slide} from '@/components/types';
+import {Slide} from '@/types/types';
 
 export const slides: Slide[] = [
   {

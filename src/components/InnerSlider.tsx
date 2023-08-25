@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import {FC} from 'react';
-import {ServicesSlideProps} from './types';
+import {ServicesSlideProps} from '../types/types';
 
 const InnerSlider: FC<ServicesSlideProps> = ({picture, title}) => {
   return (

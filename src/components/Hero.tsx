@@ -1,6 +1,7 @@
 import {FC} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+// import {Link} from 'react-scroll';
 
 const Hero: FC = () => {
   return (
@@ -31,7 +32,11 @@ const Hero: FC = () => {
                 of the Carpathians. Enjoy stunning views, exciting
                 expeditions, and the best service!
                 </p>
-            <Link className="button-hero" href="/contacts">JOIN NOW
+            <Link href="contacts" 
+            // spy={true}
+            //     smooth={true}
+            //     duration={500} 
+                className="button-hero">JOIN NOW
                 </Link>
             </div>
         </div>
