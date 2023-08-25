@@ -17,31 +17,30 @@ const Services: FC = () => {
 
     const onClickBtn = (index: number) => {
         swiperInstance.slideTo(index);
-        setActiveIndex(index + 1)
+        setActiveIndex(index)
     };
   
     return (
       <>
       
-        {/* <section
-          className="section  services h-[850px] relative md:h-[620px] xl:h-[784px]"
-          id="services"
-        > */}
+
         <section>
-        <div className=" services-section relative padding-y min-h-[851px]">
-           <div className="absolute z-10">
-             <h2 className="header-2 mb-[24px] md:mb-0 z-20">
+        <div className=" services-section  padding-y min-h-[851px] padding-x">
+           <div className=" ">
+             <h2 className="header-2 mb-[24px]">
                We <span className="font-medium">offer</span>
              </h2>
-             <div className="header-2 ml-auto">0{activeIndex + 1}/0{slides.length}
+             <div className="text-[43px] font-thin leading-normal ">0{activeIndex + 1}/
+             <span className='text-light-transparent'>0{slides.length}</span>
              </div>
-             </div>
-             <div className=" relative"> 
+        </div>
+             <div className=" min-h-[213px] pb-[12px]"> 
                 {/* //TODO: add background */}
              {/* <div className="my-[16px] max-w-[463px] md:max-w-[463px] xl:max-w-[607px]"> */}
 
-          <div className="swiper-container absolute top-[202px] left-0  h-full w-full ">
-            <Swiper modules={[EffectFade]} onSwiper={setSwiperInstance} effect="fade">
+          <div className="  h-full w-full ">
+            <Swiper modules={[EffectFade]} onSwiper={setSwiperInstance} 
+              onSlideChange={() => console.log('slide change')} effect="fade">
               {slides.map(
                 ({ picture, bg, title }, index, arr) => {
   
@@ -58,12 +57,9 @@ const Services: FC = () => {
                 }
               )}
             </Swiper>          
-            <div className=" flex flex-col ">
-          <p className="text-[67px] font-thin mb-10 leading-[1.16]">
-            0{activeIndex}/<span className="text-white/20 ">0{slides.length}</span>
-          </p>
+            <div className=" flex flex-col mt-[12px]">
 
-          <p className=" block text-right mb-6 text-[12px] leading-loose tracking-[2.4px] md:hidden">
+          <p className=" block text-right mb-6 text-[12px] leading-loose tracking-[2.4px]">
             {slides[activeIndex].title}
           </p>
 
@@ -73,7 +69,7 @@ const Services: FC = () => {
                 <li
                   key={index}
                   className={
-                    index === activeIndex - 1
+                    index === activeIndex
                       ? 'services-item__active'
                       : ''
                   }
