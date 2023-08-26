@@ -67,25 +67,6 @@ body {
   @apply md:w-[230px] xl:w-[294px] ml-auto;
 }
 
-.button-hero::before,
-.button-hero::after {
-  content: '';
-  position: absolute;
-  width: 42px;
-  height: 53px;
-  top: 0;
-  bottom: 0;
-}
-
-.button-hero::before {
-  left: 0;
-  content: url('/right-mobile.svg');
-}
-
-.button-hero::after {
-  right: 0;
-  content: url('/left-mobile.svg');
-}
 
 .mobile-menu__bg {
   background: rgba(1, 10, 5, 0.75);

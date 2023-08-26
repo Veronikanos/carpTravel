@@ -15,9 +15,10 @@ module.exports = {
       colors: {
         'dark-color': '#0F1812',
         'light-color': '#FFFFFF',
-        'light-transparent': 'rgba(255, 255, 255, 0.20)'
+        'light-transparent': 'rgba(255, 255, 255, 0.20)',
       },
     },
   },
   plugins: [],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
 };

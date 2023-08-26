@@ -1,6 +1,8 @@
 import {FC} from 'react';
 import Link from 'next/link';
 
+
+
 const Hero: FC = () => {
   return (
     <section className=" hero-section ">
@@ -29,7 +31,7 @@ const Hero: FC = () => {
                 parts of the Carpathians. Enjoy stunning views,
                 exciting expeditions, and the best service!
               </p>
-              <Link href="contacts" className="button-hero">
+              <Link href="contacts" className='button-hero'>
                 JOIN NOW
               </Link>
             </div>
