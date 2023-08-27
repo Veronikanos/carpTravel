@@ -73,19 +73,20 @@ const Services: FC = () => {
           {/* Controlled Swiper -> store swiper instance */}
           <div className="absolute inset-0 padding-x my-14">
             {/* text-block */}
-            <div className="relative z-10 flex flex-col">
-            <div className="flex flex-col mb-[16px]">
-                <div className="header-2">We <span className="font-medium">offer</span></div>
-                <div className="text-[43px] font-thin self-end leading-normal md:text-[67px] md:leading-[78px]">
+            <div className="relative z-10 flex flex-col h-full  md:grid  md:gap-x-[20px] md:gap-y-[36px] md:grid-flow-row md:auto-rows-max">
+            {/* <div className="flex flex-col"> */}
+                <div className="header-2 mb-[24px] md:mb-0">We <span className="font-medium">offer</span>
+                </div>
+                <div className="text-[43px] mb-[16px] font-thin ml-auto leading-normal md:text-[67px] md:leading-[78px]  md:mb-0 md:col-start-2">
                 0{activeIndex + 1}/
                 <span className="text-light-transparent">
                   0{slides.length}
                 </span>
               </div>
-               </div>
+               {/* </div> */}
             
 
-
+<div className="md:row-start-2 md:col-start-1">
           <Swiper modules={[Controller, EffectFade]} 
           effect="fade" 
           controller={{control: controlledSwiper}}  
@@ -93,7 +94,7 @@ const Services: FC = () => {
         //   noSwiping={true}
         noSwipingClass="no-swipe"
 
-          className='w-full h-[213px] sm:h-[370px] xl:h-[429px] sm:w-[463px] md:w-[463px] lg:w-[607px] mb-[12px]' 
+          className='w-full h-[213px] sm:h-[370px] xl:h-[429px] sm:w-[463px] md:w-[463px] lg:w-[607px] mb-[12px] md:mb-0' 
 
           >
             {slides.map((item) => (
@@ -110,14 +111,14 @@ const Services: FC = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+</div>
 
-
-          <div className=" flex flex-col">
+          <div className=" flex flex-col grow md:col-start-2 md:row-start-2">
                   <p className=" block text-right mb-6 text-[12px] leading-loose tracking-[2.4px] md:mb-[34px] md:text-left">
                     {slides[activeIndex].title}
                   </p>
 
-                  <ul className="mb-[34px] services-list flex flex-col gap-[16px] md:order-first md:mb-[25px] xl:text-[28px] xl:gap-[24px]">
+                  <ul className="services-list flex flex-col gap-[16px] md:order-first md:mb-[25px] xl:text-[28px] xl:gap-[24px]">
                     {sliderTitleButtonText.map((item, index) => {
                       return (
                         <li
@@ -136,7 +137,7 @@ const Services: FC = () => {
                     })}
                   </ul>
 
-                  <div className=" grow flex flex-col justify-between">
+                  <div className="flex-grow flex items-end">
                     <p className="section-text md:text-[13px] md:text-justify md:leading-[1.53] xl:text-[18px]">
                       {slides[activeIndex].description}
                     </p>
