@@ -34,7 +34,7 @@ const Services: FC = () => {
     <>
       <section id="services">
         {/* <h2>We offer</h2> */}
-        <div className="services-section  max-width relative ">
+        <div className="services-section  relative ">
           <Swiper
             modules={[Controller, EffectFade, Navigation]}
             slidesPerView={1}
@@ -113,8 +113,8 @@ const Services: FC = () => {
           </Swiper>
 </div>
 
-          <div className=" flex flex-col grow md:col-start-2 md:row-start-2">
-                  <p className=" block text-right mb-6 text-[12px] leading-loose tracking-[2.4px] md:mb-[34px] md:text-left">
+          <div className=" flex flex-col grow md:col-start-2 md:row-start-2 xl:grid xl:grid-flow-cols xl:gap-x-[60px] xl:gap-y-[23]">
+                  <p className=" block text-right mb-6 text-[12px] leading-loose tracking-[2.4px] md:mb-[34px] md:text-left xl:col-start-2">
                     {slides[activeIndex].title}
                   </p>
 
@@ -137,7 +137,7 @@ const Services: FC = () => {
                     })}
                   </ul>
 
-                  <div className="flex-grow flex items-end">
+                  <div className="flex-grow flex items-end  xl:row-start-2 xl:col-span-2">
                     <p className="section-text md:text-[13px] md:text-justify md:leading-[1.53] xl:text-[18px]">
                       {slides[activeIndex].description}
                     </p>
