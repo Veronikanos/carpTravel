@@ -4,7 +4,7 @@ import {CareerForm} from './CareerForm';
 const Career: FC = () => {
   return (
     <section id="career" className="career-section">
-      <div className="padding-x">
+      <div className="padding-x max-width">
         <div className="padding-y grid grid-cols-3">
           <h2 className="header-2 col-span-3  md:col-span-2 mb-6">
             Choose <span className="font-medium">us</span>

@@ -13,8 +13,8 @@ const Header: FC = () => {
   };
 
   return (
-    <header className="padding-x pt-8 md:pt-6 z-10  relative">
-      <nav className="max-width flex-between align-baseline text-white">
+    <header className="padding-x pt-8 md:pt-6 z-10 max-width relative">
+      <nav className=" flex-between align-baseline text-white">
         <Link to="/">
           <Logo />
         </Link>

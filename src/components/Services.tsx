@@ -22,9 +22,9 @@ const Services: FC = () => {
   return (
     <section id="services">
       <h2 className="w-0 h-0 mt-[-1px] text-transparent">We offer</h2>
-      <div className="services-section  relative ">
+      <div className="services-section  relative">
         <SliderBackground setControlledSwiper={setControlledSwiper} />
-        <div className="absolute inset-0 padding-x my-14">
+        <div className="absolute inset-0 padding-x my-14 max-width">
           {/* text-block */}
           <div className="relative z-10 flex flex-col h-full  md:grid  md:gap-x-[20px] md:gap-y-[36px] md:grid-flow-row md:auto-rows-max">
             <div className="header-2 mb-[24px] md:mb-0">
