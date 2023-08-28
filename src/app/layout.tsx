@@ -14,13 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-        {/* <Head> */}
-        {/* <link rel="icon" id='favicon' href="/favicon.ico" sizes="any" /> */}
-        {/* </Head> */}
       <body className='relative bg-dark-color text-light-color font-inter'>
         <Header />
         {children}
-        {/* <Footer /> */}
         </body>
     </html>
   )

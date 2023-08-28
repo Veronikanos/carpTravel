@@ -23,9 +23,8 @@ const InnerSlider: FC<SliderProps> = ({setInstanceSwiper}) => {
         <SwiperSlide key={item.title} className="no-swipe">
           <Image
             src={item.picture}
-            alt="Nested Slide Image"
-            layout="fill"
-            objectFit="cover"
+            alt={item.title}
+            fill
             className="object-cover"
           />
         </SwiperSlide>

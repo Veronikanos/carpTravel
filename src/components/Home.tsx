@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import { Inter } from "next/font/google";
-import { About, Contacts, Hero, Services } from '.';
+import { About, Contacts, Hero, Services, Career } from '.';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,6 +13,7 @@ const Home: FC = () => {
       <Hero />
       <About/>
       <Services/>
+      <Career/>
       <Contacts/>
     </main>
   );

@@ -16,6 +16,7 @@ module.exports = {
         'dark-color': '#0F1812',
         'light-color': '#FFFFFF',
         'light-transparent': 'rgba(255, 255, 255, 0.20)',
+        'form-input': 'rgba(255, 255, 255, 0.05)'
       },
       screens: {
         xs: '320px',

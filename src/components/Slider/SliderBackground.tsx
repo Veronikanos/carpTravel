@@ -22,12 +22,11 @@ const SliderBackground:  FC<SliderProps> = ({setControlledSwiper}) => {
         {slides.map((item) => {
           return (
             <SwiperSlide key={item.id} className="no-swipe">
-              <div className="w-full h-[851px] md:h-[621px] xl:h-[779px]   relative">
+              <div className="w-full h-[851px] sm:h-[950px] md:h-[621px] xl:h-[779px]   relative">
                 <Image
                   src={item.bg}
                   alt={item.title}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
                   className="object-cover"
                 />
               </div>
