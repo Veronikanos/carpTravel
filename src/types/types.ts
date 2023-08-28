@@ -6,6 +6,12 @@ export type Slide = {
   description: string;
 };
 
+export type Gallery = {
+  id: number;
+  picture: string;
+  title: string;
+};
+
 export type ServicesSlideProps = {
   picture: any;
   title: string;

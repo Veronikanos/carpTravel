@@ -5,7 +5,7 @@ const Contacts: FC = () => {
     <section id="contacts">
       <div className="padding-x max-width">
         <div className="padding-y">
-          <h2 className="header-2 mb-[8px]">Contacts</h2>
+          <h2 className="header-2 mb-[8px]">Contact <span className="font-medium">us</span></h2>
         </div>
       </div>
     </section>
