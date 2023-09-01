@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'CarpTravel',
     description: 'Uncover secrets of the Carpatian mountains',
     siteName: 'CarpTravel',
-    images: [{url: '/logo.png'}],
+    images: [{url: 'https://carp-travel-nu.vercel.app/image-opg.png'}],
   },
   applicationName: 'CarpTravel',
   referrer: 'origin-when-cross-origin',
